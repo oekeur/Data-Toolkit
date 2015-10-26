@@ -23,9 +23,35 @@ def split_string(source, separators):
     The ouput of this function should be a list of strings split at the
     positions of each of the separator characters.
     '''
-    # PROVIDE YOUR IMPLEMENTATION HERE
+    y = 0
+    separator = []
+    locations = []
+    output = []
+    i = 0
+    x = 0
+    w = 0
+
+    for y in range(len(separators)):
+        separator.append(separators[y])
+    for i in range(len(source)):
+        if source[i] in separators:
+            locations.append(i)
+            print locations
+            i +=1
+    for x in range(len(locations)-1):
+        if x < len(locations):
+            output.append(source[locations[x+1]:locations[x-1]])
+            print output[x]
+            x += 1 
+    for w in range(len(output)):
+        print output[w]
+        w += 1     
+
+
 
 if __name__ == '__main__':
     # You can try to run your implementation here, that will not affect the
     # automated tests.
-    print split_string('abacadabra', 'ba')  # should print: ['c', 'd', 'r']
+    # should print: ['c', 'd', 'r']
+    print split_string('abacadabra', 'ba')  
+
