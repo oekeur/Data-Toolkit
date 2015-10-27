@@ -29,6 +29,7 @@ def split_string(source, separators):
     output = []
     i = 0
     j = 0
+    k = 0
 
     # determine where the separators are
     for i in range(len(source)):
@@ -42,7 +43,10 @@ def split_string(source, separators):
             while k not in locations and k in range(len(source)):
                 k += 1
             output.append(source[j:k])
-        j += 1
+        if k > 1:
+            j += len(output[-1])
+        else:
+            j += 1
 
 
     # return the outputlist   
