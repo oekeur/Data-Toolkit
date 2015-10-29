@@ -23,26 +23,19 @@ def split_string(source, separators):
     The ouput of this function should be a list of strings split at the
     positions of each of the separator characters.
     '''
-    # initialize variables
-    separator = [separators]
-    locations = []
     output = []
-    i = 0
     j = 0
     k = 0 
-    # determine where the separators are
-    for i in range(len(source)):
-        if source[i] in separators:
-            locations.append(i)
 
-    # split source on basis of locations
+    # loop over the source
     while j in range(len(source)):
         k = 0
-        if j not in locations:
+        if source[j] not in separators:
             k = j + 1
             # as long as k is not the list of separators, check for the next letter
-            while k not in locations and k in range(len(source)):
+            while k in range(len(source)) and source[k] not in separators:
                 k += 1
+            # when a separator is found, add the characters between the separators to the output
             output.append(source[j:k])
         # if a word was found, skip over the length of that word    
         if k > 1:
@@ -53,7 +46,6 @@ def split_string(source, separators):
 
 
     # return the outputlist   
-    print
     return output
 
 
