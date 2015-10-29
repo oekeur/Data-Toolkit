@@ -30,30 +30,39 @@ def split_string(source, separators):
     i = 0
     j = 0
     k = 0
-
-    # !going to ditch this and instead using if source[j] in separators!
+    print
+    print source
+    print separators, 
     # determine where the separators are
     for i in range(len(source)):
         if source[i] in separators:
             locations.append(i)
+    print locations
 
     # split source on basis of locations
     while j in range(len(source)):
+        k = 0
         if j not in locations:
+            print
+            print 'j = {}' .format(j),
             k = j + 1
             # as long as k is not the list of separators, check for the next letter
             while k not in locations and k in range(len(source)):
                 k += 1
+            print 'k = {}' .format(k),
             output.append(source[j:k])
+            print 'len = {}' .format(len(output[-1]))
         # if a word was found, skip over the length of that word    
         if k > 1:
             j += len(output[-1])
         # else go to the next letter
         else:
             j += 1
+        print 'j = {}' .format(j),
 
 
     # return the outputlist   
+    print
     return output
 
 
