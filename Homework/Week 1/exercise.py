@@ -62,6 +62,6 @@ if __name__ == '__main__':
     print split_string('abc', '')  
     # should print: ['aba', 'adaba', 'a']
     print split_string('abacadabra', 'cr')  
-    # should print: ['b', 'c', 'd', 'br']
-    print split_string('abacadabra', 'a')  
+    # should print: ['a', 'acada']
+    print split_string('abacadabra', 'b')  
 
