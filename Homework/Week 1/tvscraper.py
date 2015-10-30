@@ -8,6 +8,7 @@ This script scrapes IMDB and outputs a CSV file with highest ranking tv series.
 import csv
 
 from pattern.web import URL, DOM
+from exercise import 
 
 TARGET_URL = "http://www.imdb.com/search/title?num_votes=5000,&sort=user_rating,desc&start=1&title_type=tv_series"
 BACKUP_HTML = 'tvseries.html'
@@ -25,12 +26,23 @@ def extract_tvseries(dom):
     - Actors/actresses (comma separated if more than one)
     - Runtime (only a number!)
     '''
+    url = URL("TARGET_URL")
+    dom = DOM(url.download(cached=True))
+
+    <td class="title"></span> eerste href
+    <span class="value">9.5</span>
+    <span class="credit"></span> elke href
+    <span class="genre"> </span>elke href
+    <span class="runtime">47 mins.</span>
+    for e in dom.by_tag("div.entry")[:]:
+        for a in e.by_tag("a.href")[:1]: # First <a class="title"> in entry.
+            
+
 
     # ADD YOUR CODE HERE TO EXTRACT THE ABOVE INFORMATION ABOUT THE
     # HIGHEST RANKING TV-SERIES
     # NOTE: FOR THIS EXERCISE YOU ARE ALLOWED (BUT NOT REQUIRED) TO IGNORE
     # UNICODE CHARACTERS AND SIMPLY LEAVE THEM OUT OF THE OUTPUT.
-
     return []  # replace this line as well as appropriate
 
 
@@ -40,6 +52,8 @@ def save_csv(f, tvseries):
     '''
     writer = csv.writer(f)
     writer.writerow(['Title', 'Ranking', 'Genre', 'Actors', 'Runtime'])
+    for x in len():
+        writer.writerow([])
 
     # ADD SOME CODE OF YOURSELF HERE TO WRITE THE TV-SERIES TO DISK
 
