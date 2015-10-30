@@ -8,7 +8,6 @@ This script scrapes IMDB and outputs a CSV file with highest ranking tv series.
 import csv
 
 from pattern.web import URL, DOM
-from exercise import 
 
 TARGET_URL = "http://www.imdb.com/search/title?num_votes=5000,&sort=user_rating,desc&start=1&title_type=tv_series"
 BACKUP_HTML = 'tvseries.html'
@@ -71,10 +70,10 @@ def save_csv(f, tvseries):
     '''
     Output a CSV file containing highest ranking TV-series.
     '''
-    with open(tvseries.csv , w) as f
+    f = open(tvseries.csv , w)
     writer = csv.writer(f)
     writer.writerow(['Title', 'Ranking', 'Genre', 'Actors', 'Runtime'])
-    for x in len(title):
+    for x in range(len(title)):
         writer.writerow([title[x], ranking[x], credit[x], genre[x], int(runtime[x])
 
     
