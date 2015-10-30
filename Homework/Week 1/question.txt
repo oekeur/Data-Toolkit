@@ -1,0 +1,1 @@
+a branch is a copy of the masterfiles. Using this system of branching you can have working code in the master and simultaneously work on new code with breaking the master

@@ -26,23 +26,28 @@ def extract_tvseries(dom):
     - Actors/actresses (comma separated if more than one)
     - Runtime (only a number!)
     '''
-    url = URL("TARGET_URL")
-    dom = DOM(url.download(cached=True))
+    # <td class="title"></span> eerste href
+    # <span class="value">9.5</span>
+    # <span class="credit"></span> elke href
+    # <span class="genre"> </span>elke href
+    # <span class="runtime">47 mins.</span>
 
-    <td class="title"></span> eerste href
-    <span class="value">9.5</span>
-    <span class="credit"></span> elke href
-    <span class="genre"> </span>elke href
-    <span class="runtime">47 mins.</span>
-    for e in dom.by_tag("div.entry")[:]:
+    
+    for e in dom.by_class("title")[:]:
+        for a in e.by_tag("a.href")[:1]: # First href
+
+    for e in dom.by_class("value")[:]:
         for a in e.by_tag("a.href")[:1]: # First <a class="title"> in entry.
-            
 
+    for e in dom.by_class("credit")[:]:
+        for a in e.by_tag("a.href")[:]: # all hrefs.
 
-    # ADD YOUR CODE HERE TO EXTRACT THE ABOVE INFORMATION ABOUT THE
-    # HIGHEST RANKING TV-SERIES
-    # NOTE: FOR THIS EXERCISE YOU ARE ALLOWED (BUT NOT REQUIRED) TO IGNORE
-    # UNICODE CHARACTERS AND SIMPLY LEAVE THEM OUT OF THE OUTPUT.
+    for e in dom.by_class("genre")[:]:
+        for a in e.by_tag("a.href")[:]: # all hrefs
+
+    for e in dom.by_class("runtime")[:]:
+        for a in e.by_tag("a.href")[:1]: # First <a class="title"> in entry.
+
     return []  # replace this line as well as appropriate
 
 
@@ -50,12 +55,13 @@ def save_csv(f, tvseries):
     '''
     Output a CSV file containing highest ranking TV-series.
     '''
+    with open(tvseries.csv , w) as f
     writer = csv.writer(f)
     writer.writerow(['Title', 'Ranking', 'Genre', 'Actors', 'Runtime'])
-    for x in len():
-        writer.writerow([])
+    for x in len(title):
+        writer.writerow([title[x], ranking[x], credit[x], genre[x], runtime[x])
 
-    # ADD SOME CODE OF YOURSELF HERE TO WRITE THE TV-SERIES TO DISK
+    
 
 if __name__ == '__main__':
     # Download the HTML file
