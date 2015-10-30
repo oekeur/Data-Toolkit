@@ -32,23 +32,39 @@ def extract_tvseries(dom):
     # <span class="genre"> </span>elke href
     # <span class="runtime">47 mins.</span>
 
+    # maybe a named tuples would be better, but those are immutable..
+    title = []
+    value = []
+    credit = []
+    genre =[]
+    runtime = []
     
+    # extract the title based on title tag
     for e in dom.by_class("title")[:]:
         for a in e.by_tag("a.href")[:1]: # First href
+            title.append(element('e:first-child'))
 
+    # extract the rating based on value tag
     for e in dom.by_class("value")[:]:
-        for a in e.by_tag("a.href")[:1]: # First <a class="title"> in entry.
+        value.append(element('e:first-child'))
 
+    # extract the credit based on credit tag
     for e in dom.by_class("credit")[:]:
         for a in e.by_tag("a.href")[:]: # all hrefs.
+            temp_credit.append(element('e:first-child'))
+        credit.append(temp_credit)
 
+    # extract the genre based on genre tag
     for e in dom.by_class("genre")[:]:
         for a in e.by_tag("a.href")[:]: # all hrefs
+            temp_genre.append(element('e:first-child'))
+        genre.append(temp_genre)
 
+    # extract the runtime based on runtime tag
     for e in dom.by_class("runtime")[:]:
-        for a in e.by_tag("a.href")[:1]: # First <a class="title"> in entry.
+        runtime.append(element('e:first-child'))
 
-    return []  # replace this line as well as appropriate
+    return title, value, credit, genre, runtime 
 
 
 def save_csv(f, tvseries):
@@ -59,7 +75,7 @@ def save_csv(f, tvseries):
     writer = csv.writer(f)
     writer.writerow(['Title', 'Ranking', 'Genre', 'Actors', 'Runtime'])
     for x in len(title):
-        writer.writerow([title[x], ranking[x], credit[x], genre[x], runtime[x])
+        writer.writerow([title[x], ranking[x], credit[x], genre[x], int(runtime[x])
 
     
 
