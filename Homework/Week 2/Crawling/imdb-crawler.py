@@ -1,6 +1,6 @@
 #!/usr/bin/env python
-# Name:
-# Student number:
+# Name: Oscar Keur
+# Student number: 11122102
 '''
 This script crawls the IMDB top 250 movies.
 '''
@@ -210,6 +210,13 @@ def scrape_top_250(url):
         IMDB, note that these URLS must be absolute (i.e. include the http
         part, the domain part and the path part).
     '''
+
+    # for class = titleColumn [:]
+        # relativeurl = first hrefelement
+        # relativeurl.split('/title/')
+        # relativeurl.split('/')
+        # movie_urls.append = "http://www.imdb.com/title/" + relativeurl
+
     movie_urls = []
     # YOUR SCRAPING CODE GOES HERE, ALL YOU ARE LOOKING FOR ARE THE ABSOLUTE
     # URLS TO EACH MOVIE'S IMDB PAGE, ADD THOSE TO THE LIST movie_urls.
@@ -235,7 +242,16 @@ def scrape_movie_page(dom):
         several), actor(s) (semicolon separated if several), rating, number
         of ratings.
     '''
-    # YOUR SCRAPING CODE GOES HERE:
+    #title = class=itemprop.name.innerhtml
+    #year = class=nobr[0].innerhtml
+    #duration = itemprop.duration.innerhtml
+    #genre = itemprop.genre[:].innerhtml ; 
+    #director = itemprop.director.name.innerhtml ;
+    #writer = itemprop.creator.name.innerhtml ;
+    #actor = itemprop.actors.name.innerhtml ;
+    #rating = itemprop.ratingValue.innerhtml
+    #numrating = itemprop.ratingCount.innerhtml
+
 
 
     # Return everything of interest for this movie (all strings as specified
