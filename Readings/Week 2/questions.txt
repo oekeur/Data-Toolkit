@@ -1,0 +1,24 @@
+Find a visualization not discussed in class or used in a homework and answer the following questions pertaining to that visualization. Attach the visualization as a screenshot in your submission.
+	http://www.lucify.com/the-flow-towards-europe/
+
+Consider Bertin’s characterization of visual variables (position, size, shape, value, color, orientation, and texture). Pick 2 of Bertin’s visual variables, and discuss them in relation to your visualization.
+	Shape: flows of immigrants are represented as points moving in a line to their destination, the points are both associative and ordered ( i think) in the sense that each point represents x immigrants, therefore giving order to the flow, as well as associative because points having the same origin and destination follow the same line
+	Size: the amount of dots entering a county add up to the bar representing the number of welcomed immigrants
+
+
+Munzner proposed a nested model for visualization design and validation. Discuss/validate your visualization with respect to domain problem characterization and data/operation abstraction design.
+	Because the visualized problem is largely trivial I would say a domain problem characterization is not really that hard. The domain of people fleeing is largely sociological but the represented data is only about the amount of numbers moving and therefore pretty trivial. The data abstraction consists of mapping the reported number of the flows to an actual datastructure. ie reading articles to find the size of flows a different points and resstructure data into the represented data, namely different flows from different countries, while the real flows are no homogeneous like data but bigger heterogenous flows.
+
+
+Based on Cleveland and McGill’s results, does your visualization embody good practices (i.e. can people accurately perform the tasks based on the encodings?)
+	Yes, the visualization is pretty elementary and therefore easy to comprehend, the way the size of a flow is modeled might be a bit counterintuitive, but this is largely compensated by the changing colour of the country of origin, which is elemntary encoded.
+
+
+Do you agree that visualization is a functional art? Explain.
+	I think the term functional art in itself can be quiet contradictory... Art does not have to be functional. But ok.. Yeah, i guess kinda.. It is art in the sense that it is searching for the correct form in which to present your information, and it is functional in the sense that it has to convey a message, so functionality is indeed of importance
+
+
+Ask yourself what the designer is trying to convey and think of three to four possible tasks this visualization should help you with. Does the visualization achieve any of your tasks? (To view an example, see Albert Cairo, pages 26-­28.)
+	1. Where do immigrants originate from? This is pretty clear because each country has a number representing the amount of immigrants. It is however not 100% clear because you cannot zoom out to "see the bigger picture" (pun intended)
+	2. Where are immigrants headed to? This is REALLY clear because of the barchart representing how large the number of immigrants is. Comparison between countries is difficult however because of the map underneath
+	3. ...

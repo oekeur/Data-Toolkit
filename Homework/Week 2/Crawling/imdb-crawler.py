@@ -252,6 +252,25 @@ def scrape_movie_page(dom):
     #rating = itemprop.ratingValue.innerhtml
     #numrating = itemprop.ratingCount.innerhtml
 
+    title = []
+    duration = []
+    genres = []
+    directors = []
+    writers = []
+    actors = []
+    rating = []
+    n_ratings = []
+
+    # single entry, within href
+    for e in dom.by_class("title")[:]:
+        for a in e.by_tag("a.href")[:1]: # First href
+            title.append(element('e:first-child'))
+
+    # multi entry
+    for e in dom.by_class("credit")[:]:
+        for a in e.by_tag("a.href")[:]: # all hrefs.
+            temp_credit.append(element('e:first-child'))
+        credit.append(temp_credit)
 
 
     # Return everything of interest for this movie (all strings as specified
