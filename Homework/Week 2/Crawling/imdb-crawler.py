@@ -173,6 +173,7 @@ def main():
     # extract the top 250 movies
     print 'Scraping top 250 page ...'
     url_strings = scrape_top_250(top_250_url)
+    print "Num urlstrings:", len(url_strings), "..."
 
     # grab all relevant information from the 250 movie web pages
     rows = []
@@ -210,18 +211,13 @@ def scrape_top_250(url):
         IMDB, note that these URLS must be absolute (i.e. include the http
         part, the domain part and the path part).
     '''
-
-    # for class = titleColumn [:]
-        # relativeurl = first hrefelement
-        # relativeurl.split('/title/')
-        # relativeurl.split('/')
-        # movie_urls.append = "http://www.imdb.com/title/" + relativeurl
-
     movie_urls = []
-    # YOUR SCRAPING CODE GOES HERE, ALL YOU ARE LOOKING FOR ARE THE ABSOLUTE
-    # URLS TO EACH MOVIE'S IMDB PAGE, ADD THOSE TO THE LIST movie_urls.
-
-
+    dom = DOM(url)
+    for a in dom.by_class('titleColumn'):
+        for e in ('a:first-child'):
+            relativeurl = e.content.split('/title/')[1].split('/')[0]
+            absoluteurl = "http://www.imdb.com/title/" + relativeurl
+            movie_urls.append(absoluteurl)
 
     # return the list of URLs of each movie's page on IMDB
     return movie_urls
@@ -242,41 +238,41 @@ def scrape_movie_page(dom):
         several), actor(s) (semicolon separated if several), rating, number
         of ratings.
     '''
-    #title = class=itemprop.name.innerhtml
-    #year = class=nobr[0].innerhtml
-    #duration = itemprop.duration.innerhtml
-    #genre = itemprop.genre[:].innerhtml ; 
-    #director = itemprop.director.name.innerhtml ;
-    #writer = itemprop.creator.name.innerhtml ;
-    #actor = itemprop.actors.name.innerhtml ;
-    #rating = itemprop.ratingValue.innerhtml
-    #numrating = itemprop.ratingCount.innerhtml
+    #title = span.itemprop.name.content
+    #year = class=nobr[0].content
+    #duration = itemprop.duration.content
+    #genre = itemprop.genre[:].content ; 
+    #director = itemprop.director.name.content ;
+    #writer = itemprop.creator.name.content ;
+    #actor = itemprop.actors.name.content ;
+    #rating = itemprop.ratingValue.content
+    #numrating = itemprop.ratingCount.content
 
-    title = []
-    duration = []
-    genres = []
-    directors = []
-    writers = []
-    actors = []
-    rating = []
-    n_ratings = []
+    # title = []
+    # duration = []
+    # genres = []
+    # directors = []
+    # writers = []
+    # actors = []
+    # rating = []
+    # n_ratings = []
 
-    # single entry, within href
-    for e in dom.by_class("title")[:]:
-        for a in e.by_tag("a.href")[:1]: # First href
-            title.append(element('e:first-child'))
+    # # single entry, within href
+    # for e in dom.by_class("title")[:]:
+    #     for a in e.by_tag("a.href")[:1]: # First href
+    #         title.append(element('e:first-child'))
 
-    # multi entry
-    for e in dom.by_class("credit")[:]:
-        for a in e.by_tag("a.href")[:]: # all hrefs.
-            temp_credit.append(element('e:first-child'))
-        credit.append(temp_credit)
+    # # multi entry
+    # for e in dom.by_class("credit")[:]:
+    #     for a in e.by_tag("a.href")[:]: # all hrefs.
+    #         temp_credit.append(element('e:first-child'))
+    #     credit.append(temp_credit)
 
 
-    # Return everything of interest for this movie (all strings as specified
-    # in the docstring of this function).
-    return title, duration, genres, directors, writers, actors, rating, \
-        n_ratings
+    # # Return everything of interest for this movie (all strings as specified
+    # # in the docstring of this function).
+    # return title, duration, genres, directors, writers, actors, rating, \
+    #     n_ratings
 
 
 if __name__ == '__main__':

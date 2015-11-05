@@ -26,8 +26,11 @@ var ApplePie = {
 // name of the creator (found in the header) of the recipe in this 
 // property. Do not worry about removing "Grandma" from the string! 
 
-// TODO: add code here
-
+ApplePie.creator = document.getElementsByTagName("p")[0].innerHTML
+length = document.getElementById("ingredient-list").getElementsByTagName("li").length
+for (i =0; i < length; i++) {
+	ApplePie.ingredients.push(document.getElementById("ingredient-list").getElementsByTagName("li")[i].innerHTML)
+};
 // Exercise 2:
 // ----------- console.logging and iterating over an array ---------
 // Use a for-loop structure to iterate over all the ingredients in 
@@ -42,12 +45,10 @@ var ApplePie = {
 
 // Uncomment by removing /* and */ and finish this for-loop. 
 // Notice that the for-loop is still missing its condition:
-/*
-for (var i = 0; ; i++) {
-	// TODO: add a console.log statement, printing out the element
-	// in the ingredients array at index i 
-};
-*/
+// length = document.getElementById("ingredient-list").getElementsByTagName("li").length
+// for (i =0; i < length; i++) {
+// 	console.log(ApplePie.ingredients[i])
+// };
 
 // Introduction to function callbacks:
 // ------------- function callbacks using a for each loop -----------
@@ -64,11 +65,11 @@ for (var i = 0; ; i++) {
 // A good example is the forEach loop in javascript
 // Uncomment the following lines to use the forEach loop
 // on your ingredient-list.
-/*
-ApplePie.ingredients.forEach(function (element, index){
-	console.log('a[' + index + '] ' + element);
-});
-*/
+
+// ApplePie.ingredients.forEach(function (element, index){
+// 	console.log('a[' + index + '] ' + element);
+// });
+
 
 // Notice that .forEach is a property of an array since it 
 // can be called upon using a dot (just like "ingredients" is a property
@@ -82,13 +83,13 @@ ApplePie.ingredients.forEach(function (element, index){
 // The idea of passing a function to another function becomes even more
 // clear if we first declare the function. Like so:
 
-/*
-function log(element, index) {
-	console.log('a[' + index + '] ' + element);
-};
 
-ApplePie.ingredients.forEach(log);
-*/
+// function log(element, index) {
+// 	console.log('a[' + index + '] ' + element);
+// };
+
+// ApplePie.ingredients.forEach(log);
+
 
 // Exercise 3:
 // ------ Changing html elements and using function callbacks ------
@@ -117,6 +118,10 @@ ApplePie.ingredients.forEach(log);
 // You will probably find .addEventListener() very usefull. Make sure to pass around
 // your print function to the on-click event.
 
+// document.getElementsByClassName("pie")[0].addEventListener("click" , function() {
+// 	console.log("Hello, World")
+// })
+
 // Introduction to functions returning functions
 // ------------------- function returns  -----------------
 
@@ -124,17 +129,17 @@ ApplePie.ingredients.forEach(log);
 // to return functions inside functions. 
 
 // A good example is the following example:
-/*
-function Create_printfunction(input) {
-	var message = 'Thank you for the recipe, ' + input.creator
-	return function(another_message){
-		console.log(message + another_message);
-	}
-}
 
-var print_function = Create_printfunction(ApplePie);
-print_function(' and thank you cs50 for our programming skills!')
-*/
+// function Create_printfunction(input) {
+// 	var message = 'Thank you for the recipe, ' + input.creator
+// 	return function(another_message){
+// 		console.log(message + another_message);
+// 	}
+// }
+
+// var print_function = Create_printfunction(ApplePie);
+// print_function(' and thank you cs50 for our programming skills!')
+
 
 // The function Create_printfunction has a return statement. However, it does
 // not simply return a value like we are used to, but it returns a function.
@@ -192,22 +197,24 @@ print_function(' and thank you cs50 for our programming skills!')
 
 // Year 0 should relate to position 300. year 2000 should relate to position 
 // 300 + 500. Therefore each position should be at: (1/4) * x-value + 300.
+// (800-300) / (2000-0 * x + 300)
 
 // Does this make sense? Well, halfway our domain, at year 1000 we should be 
 // halfway our range: halfway the 500px time-line, meaning at position:
 // 500/2 + 300 = 250 + 300 = 550px. 
 
-// Let's check if our formula does indeed bring us to pixel 550:
+// Lets check if our formula does indeed bring us to pixel 550:
 // (1/4) * 1000 + 300 = 250 + 300 = 550px
 
-// So yes it does! Which makes sense because the 2000 years are scaled down
-// with a factor of 1/4th and we start our visualisation at position 300!
+// // So yes it does! Which makes sense because the 2000 years are scaled down
+// // with a factor of 1/4th and we start our visualisation at position 300!
 
 // Are you confused at how we got to our scaling factor? Well it is the only
 // unknown factor in the formula:
 // screen-coordinate = scaling-factor * domain-coordinate + padding
 // y = a * x + b
 // 800-300 = a * (2000-0) + 300
+// 500 = a * 2000 + 300
 // to calculate a, just use high school math to solve for a.
 
 // Phew, That's a lot of information! And it would be a lot of calculations
@@ -223,23 +230,26 @@ print_function(' and thank you cs50 for our programming skills!')
 // for both the scaling factor alpha, and the padding beta.
 // The advantage of this function is that, because it is generic, it can be applied to any domain and range. 
 // Therefor you can call it for any axis that you create and you neither have to make calculations by hand nor hardcode any values.
-/*
+
 function createTransform(domain, range){
-	// domain is a two-element array of the domain's bounds
-	// range is a two-element array of the range's bounds
+	// domain is a two-element array of the domain's bounds    =data
+	// range is a two-element array of the range's bounds      =screen
 	// implement the actual calculation here
-	var beta = ...;
-	var alpha = ...;
+	var beta = range[0] - domain[0]; // Substract old min, add new min
+	var alpha = (range[1] - range[0])/(domain[1] - domain[0]); // factor
+
+	console.log(beta)
+	console.log(alpha)
 
 	return function(x){
-		return alpha * x + beta;
+		return alpha * x  + beta;
 	};
 }
 
 // to use this for instance:
-var transform = createTransform([10, 20], [10, 20]);
+var transform = createTransform([10, 20], [10 , 20]);
 console.log(transform(15)); //should return 15!!
-*/
+
 
 // Make sure to test your createTransform function thouroughly
 // and to become familiar with how it actually works, because 
