@@ -174,6 +174,7 @@ def main():
     print 'Scraping top 250 page ...'
     url_strings = scrape_top_250(top_250_url)
     print "Num urlstrings:", len(url_strings), "..."
+    # print url_strings[:5]
 
     # grab all relevant information from the 250 movie web pages
     rows = []
@@ -192,8 +193,8 @@ def main():
             make_backup(html_file, movie_html)
 
     # Save a CSV file with the relevant information for the top 250 movies.
-    print 'Saving CSV ...'
-    save_csv(os.path.join(SCRIPT_DIR, 'top250movies.csv'), rows)
+    # print 'Saving CSV ...'
+    # save_csv(os.path.join(SCRIPT_DIR, 'top250movies.csv'), rows)
 
 
 # --------------------------------------------------------------------------
@@ -204,22 +205,22 @@ def scrape_top_250(url):
     Scrape the IMDB top 250 movies index page.
 
     Args:
-        url: pattern.web.URL instance pointing to the top 250 index page
+    url: pattern.web.URL instance pointing to the top 250 index page
 
     Returns:
-        A list of strings, where each string is the URL to a movie's page on
-        IMDB, note that these URLS must be absolute (i.e. include the http
+    A list of strings, where each string is the URL to a movie's page on
+    IMDB, note that these URLS must be absolute (i.e. include the http
         part, the domain part and the path part).
     '''
-    movie_urls = []
+    movie_urls = ["http://www.imdb.com/title/tt0111161"]
     dom = DOM(url)
-    for a in dom.by_class('titleColumn'):
+    for a in dom('titleColumn'):
         for e in ('a:first-child'):
             relativeurl = e.content.split('/title/')[1].split('/')[0]
             absoluteurl = "http://www.imdb.com/title/" + relativeurl
             movie_urls.append(absoluteurl)
 
-    # return the list of URLs of each movie's page on IMDB
+        # return the list of URLs of each movie's page on IMDB
     return movie_urls
 
 
@@ -247,15 +248,27 @@ def scrape_movie_page(dom):
     #actor = itemprop.actors.name.content ;
     #rating = itemprop.ratingValue.content
     #numrating = itemprop.ratingCount.content
+    
+    title = [] # check
+    year = [] # check
+    duration = [] # check
+    genres = [] # kinda check
+    directors = []
+    writers = []
+    actors = []
+    rating = []
+    n_ratings = []
 
-    # title = []
-    # duration = []
-    # genres = []
-    # directors = []
-    # writers = []
-    # actors = []
-    # rating = []
-    # n_ratings = []
+    title.append(dom.by_class('header')[0].by_class('itemprop')[0].content)
+
+    year.append(dom.by_class('header')[0].by_class('nobr')[0].content.split('/')[2])
+
+    duration.append(dom.by_class('infobar')[0].by_tag('time')[0].content.split('                ')[1])
+
+    for genre in dom.by_class('infobar')[0].by_tag('a')[:-1]:
+            genres.append(genre.content.split('</span>')[0].split('>')[1])
+
+    print "year: ", year, "..."
 
     # # single entry, within href
     # for e in dom.by_class("title")[:]:
@@ -271,8 +284,8 @@ def scrape_movie_page(dom):
 
     # # Return everything of interest for this movie (all strings as specified
     # # in the docstring of this function).
-    # return title, duration, genres, directors, writers, actors, rating, \
-    #     n_ratings
+    return title, year, duration, genres, directors, writers, actors, rating, \
+        n_ratings
 
 
 if __name__ == '__main__':
