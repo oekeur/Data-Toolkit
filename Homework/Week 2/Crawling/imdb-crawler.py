@@ -193,8 +193,8 @@ def main():
             make_backup(html_file, movie_html)
 
     # Save a CSV file with the relevant information for the top 250 movies.
-    # print 'Saving CSV ...'
-    # save_csv(os.path.join(SCRIPT_DIR, 'top250movies.csv'), rows)
+    print 'Saving CSV ...'
+    save_csv(os.path.join(SCRIPT_DIR, 'top250movies.csv'), rows)
 
 
 # --------------------------------------------------------------------------
@@ -239,12 +239,12 @@ def scrape_movie_page(dom):
         several), actor(s) (semicolon separated if several), rating, number
         of ratings.
     '''
-    #title = span.itemprop.name.content
-    #year = class=nobr[0].content
-    #duration = itemprop.duration.content
-    #genre = itemprop.genre[:].content ; 
-    #director = itemprop.director.name.content ;
-    #writer = itemprop.creator.name.content ;
+    #title = header.itemprop[0]
+    #year = header.nobr[0]
+    #duration = infobar.time[0]
+    #genre = infobar.a 
+    #director = ("txt-block")[0]: ;
+    #writer = ("txt-block")[1]
     #actor = itemprop.actors.name.content ;
     #rating = itemprop.ratingValue.content
     #numrating = itemprop.ratingCount.content
@@ -253,11 +253,11 @@ def scrape_movie_page(dom):
     year = [] # check
     duration = [] # check
     genres = [] # kinda check
-    directors = []
-    writers = []
-    actors = []
-    rating = []
-    n_ratings = []
+    directors = [] # check
+    writers = [] # check
+    actors = [] # check
+    rating = [] # check
+    n_ratings = [] # check
 
     title.append(dom.by_class('header')[0].by_class('itemprop')[0].content)
 
@@ -268,18 +268,18 @@ def scrape_movie_page(dom):
     for genre in dom.by_class('infobar')[0].by_tag('a')[:-1]:
             genres.append(genre.content.split('</span>')[0].split('>')[1])
 
-    print "year: ", year, "..."
+    for e in dom.by_class("txt-block")[0].by_tag('a'):
+        directors.append(e.content.split('</span>')[0].split('>')[1])
 
-    # # single entry, within href
-    # for e in dom.by_class("title")[:]:
-    #     for a in e.by_tag("a.href")[:1]: # First href
-    #         title.append(element('e:first-child'))
+    for e in dom.by_class("txt-block")[1].by_tag('a'):
+        writers.append(e.content.split('</span>')[0].split('>')[1])
 
-    # # multi entry
-    # for e in dom.by_class("credit")[:]:
-    #     for a in e.by_tag("a.href")[:]: # all hrefs.
-    #         temp_credit.append(element('e:first-child'))
-    #     credit.append(temp_credit)
+    for e in dom.by_class("txt-block")[2].by_tag('a')[:-1]:
+        actors.append(e.content.split('</span>')[0].split('>')[1])
+
+    rating.append(dom.by_class("star-box-details")[0].by_tag('span')[0].content)
+
+    n_ratings.append(dom.by_class("star-box-details")[0].by_tag('a')[0].content.split('</span>')[0].split('>')[1])
 
 
     # # Return everything of interest for this movie (all strings as specified
