@@ -1,6 +1,8 @@
 concrete and detailed example of how bottom up processing is influenced by top down processing, leading to a potentially wrong interpretation of “reality” by the viewer. 
 
-Door focus op een bepaalde taak andere details verliezen omdat daar de focus niet op ligt
 
-Topdown = patroonherkenning door context = dingen zien doordat je ze verwacht
-Bottom up = "context door wat je ziet" = boek lezen
+Reading a book: by using the context of text you are top-down assembling a visual expectation. By using the expectation you have you can make sense out of it.
+	Otherwise it would just be some ink printed on a page in rows. By knowing that you are indeed reading a book you expect to see letters, which make up words and sentences.
+	This way you can interprete the inkmarkings on the page, which you otherwise could interprete i.e. as abstract art, as being letters, words and sentences because
+	you expect to find these in a book. Interesting thing to note are other alphabets: you could decode the fact that you are holding a book, but because you never learned
+	chinese you cannot read it. However: you still know to process the inkt on the page as being characters (even if you don't understand them) because of the context of the book
