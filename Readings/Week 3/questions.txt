@@ -1,0 +1,3 @@
+concrete and detailed example of how bottom up processing is influenced by top down processing, leading to a potentially wrong interpretation of “reality” by the viewer. 
+
+Door focus op een bepaalde taak andere details verliezen omdat daar de focus niet op ligt
