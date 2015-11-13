@@ -45,10 +45,10 @@ for (i =0; i < length; i++) {
 
 // Uncomment by removing /* and */ and finish this for-loop. 
 // Notice that the for-loop is still missing its condition:
-// length = document.getElementById("ingredient-list").getElementsByTagName("li").length
-// for (i =0; i < length; i++) {
-// 	console.log(ApplePie.ingredients[i])
-// };
+length = document.getElementById("ingredient-list").getElementsByTagName("li").length
+for (i =0; i < length; i++) {
+	console.log(ApplePie.ingredients[i])
+};
 
 // Introduction to function callbacks:
 // ------------- function callbacks using a for each loop -----------
@@ -66,9 +66,9 @@ for (i =0; i < length; i++) {
 // Uncomment the following lines to use the forEach loop
 // on your ingredient-list.
 
-// ApplePie.ingredients.forEach(function (element, index){
-// 	console.log('a[' + index + '] ' + element);
-// });
+ApplePie.ingredients.forEach(function (element, index){
+	console.log('a[' + index + '] ' + element);
+});
 
 
 // Notice that .forEach is a property of an array since it 
@@ -235,8 +235,8 @@ function createTransform(domain, range){
 	// domain is a two-element array of the domain's bounds    =data
 	// range is a two-element array of the range's bounds      =screen
 	// implement the actual calculation here
-	var beta = range[0] - domain[0]; // Substract old min, add new min
 	var alpha = (range[1] - range[0])/(domain[1] - domain[0]); // factor
+	var beta = range[0] - (alpha * domain[0]); 
 
 	console.log(beta)
 	console.log(alpha)
