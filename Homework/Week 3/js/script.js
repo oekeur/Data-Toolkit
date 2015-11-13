@@ -74,13 +74,12 @@ var text = ctx.measureText("Date");
 ctx.fillText("Date", $("#linegraph").width() - text.width - 5, $("#linegraph").height() - 5);
 
 	// make the actual line
-ctx.beginPath();
 ctx.strokeStyle = 'black';
 for (var i = 0; i < 366 - 1; i++) {
-	ctx.moveTo(transformX(weatherdata.date[0]), transformY(weatherdata.temp[i]));
-	ctx.lineTo(transformX(weatherdata.date[i+1]), transformY(weatherdata.temp[i+1]));
-	ctx.stroke();
+	ctx.moveTo(50 + transformX(weatherdata.date[i]), 250 - transformY(weatherdata.temp[i]));
+	ctx.lineTo(50 + transformX(weatherdata.date[i+1]), 250 - transformY(weatherdata.temp[i+1]));
 }
+	ctx.stroke();
 // last points needs to be added outside of the loop because of i+1 evaluating to NaN at the end
 // ctx.moveTo(transformX(weatherdata.date[]), transformY(weatherdata.temp[i]));
 // 	ctx.lineTo(transformX(weatherdata.date[i+1]), transformY(weatherdata.temp[i+1]));
