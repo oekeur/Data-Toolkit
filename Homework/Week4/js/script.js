@@ -8,12 +8,12 @@ var Month = ["January", "February", "March", "April", "May", "June", "July",
 // extract the dates and temperatures from textarea, 
 // 	at the sime time divide by 10 to make the temperatures more readable
 // 	and parse the dates into jsformat
-rawhtml = document.getElementById('raw').innerHTML;
-rawsplit = rawhtml.split("\n")
-for (var i = 0; i <= rawsplit.length - 2; i++) {
-	weatherdata.date.push(parse(rawsplit[i].split(",")[0]))
-	weatherdata.temp.push(Number(rawsplit[i].split(",")[1])/10)
+json = JSON.parse(document.getElementById('raw').innerHTML);
+for (var i = 0; i < json.length; i++) {
+	weatherdata.date.push(parse(json[i][0]))
+	weatherdata.temp.push(Number(json[i][1])/10)
 };
+
 // initialize the variables to determines domain[0]&[1] on the x-axis
 var tempmin = 100;
 var tempmax = 0;
@@ -22,6 +22,7 @@ for (var i=weatherdata.temp.length-1; i>=0; i--) {
     if (weatherdata.temp[i] < tempmin) {tempmin = weatherdata.temp[i]};
     if (weatherdata.temp[i] > tempmax) {tempmax = weatherdata.temp[i]};
 }
+
 
 var transformY = createTransform([tempmin, tempmax], [0, 240])
 var transformX = createTransform([weatherdata.date[0].valueOf(), weatherdata.date[365].valueOf()], [0, 550])
@@ -105,4 +106,20 @@ function parse(str) {
     var D = new Date(y,m,d);
     return (D);}
 
- console.log()
+function CursorPos(e) {
+	var crosscanvas = document.getElementById("crosshair")
+	crosscanvas.getBoundingClientRect();
+    var x = e.clientX;
+    var y = e.clientY;
+    var left = crosscanvas.left
+    var top = crosscanvas.top
+    console.log(x + ' ' + left)
+    console.log(y + ' ' + top)
+}
+// crosshairs and labels below here
+
+var crosshair = document.getElementById('crosshair');
+crosshair.width = 600;
+crosshair.height = 300;
+var crh = crosshair.getContext('2d');
+
