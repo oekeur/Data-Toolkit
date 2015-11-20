@@ -15,6 +15,7 @@ html, body, div, h1, form, fieldset, input, textarea, li, ul, hr, select {
     width: 70%; 
     margin: auto;
 }
+
 canvas {
     padding: 0;
     margin: auto;
@@ -25,6 +26,7 @@ canvas {
     border-color: rgb(1, 104, 155);
     border-width: 5px;
 }
+
 #header {
     background-color: rgb(1, 104, 155);
     color: white;
@@ -49,3 +51,7 @@ footer {
 h1 {
 	text-align: center;
 }
+
+/*#datelabel{
+    transform: rotate(90deg);
+}*/

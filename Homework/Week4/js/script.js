@@ -108,13 +108,14 @@ function parse(str) {
 
 function CursorPos(e) {
 	var crosscanvas = document.getElementById("crosshair")
+	console.log(crosscanvas)
 	crosscanvas.getBoundingClientRect();
     var x = e.clientX;
     var y = e.clientY;
     var left = crosscanvas.left
     var top = crosscanvas.top
-    console.log(x + ' ' + left)
-    console.log(y + ' ' + top)
+    // console.log(x + ' ' + left)
+    // console.log(y + ' ' + top)
 }
 // crosshairs and labels below here
 
@@ -123,3 +124,19 @@ crosshair.width = 600;
 crosshair.height = 300;
 var crh = crosshair.getContext('2d');
 
+function ShowLabels(){
+	// define templabel
+	// define datelabel
+	// position the labels correct
+	var templabel = document.getElementById('templabel');
+	templabel.style.position = "absolute";
+	templabel.style.left = x / 2 ;
+	templabel.style.bottom =  y;
+	var datelabel = document.getElementById('datelabel');
+	datelabel.style.position = "absolute";
+	datelabel.style.left = x;
+	datelabel.style.top = y / 2;
+	// display the labels
+	document.getElementById("templabel").innerHTML = templabel
+	document.getElementById("templabel").innerHTML = datelabel
+}
