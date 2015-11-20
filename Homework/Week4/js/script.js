@@ -106,16 +106,23 @@ function parse(str) {
     var D = new Date(y,m,d);
     return (D);}
 
-function CursorPos(e) {
-	var crosscanvas = document.getElementById("crosshair")
-	console.log(crosscanvas)
-	crosscanvas.getBoundingClientRect();
-    var x = e.clientX;
-    var y = e.clientY;
-    var left = crosscanvas.left
-    var top = crosscanvas.top
-    // console.log(x + ' ' + left)
-    // console.log(y + ' ' + top)
+function DrawCrosshair(e) {
+	crh.clearRect(0,0, 600, 300)
+	var crosscanvas = document.getElementById('crosshair');
+	crosscanvas = crosscanvas.getBoundingClientRect();
+    var x = e.clientX - crosscanvas.left;
+    var y = e.clientY - crosscanvas.top;
+    if (x > 50) {
+    	if (y < 250){
+    		ctx.moveTo(50, y);
+			ctx.lineTo(x, y);
+			ctx.moveTo(x, 250);
+			ctx.lineTo(x, y);
+			ctx.stroke();
+			console.log('einde functie')
+    	}
+    };
+    
 }
 // crosshairs and labels below here
 
