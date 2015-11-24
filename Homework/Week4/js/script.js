@@ -107,6 +107,8 @@ function parse(str) {
     return (D);}
 
 function DrawCrosshair(e) {
+	document.getElementById("templabel").innerHTML = ""
+	document.getElementById("templabel").innerHTML = ""
 	crh.clearRect(0,0, 600, 300)
 	var crosscanvas = document.getElementById('crosshair');
 	crosscanvas = crosscanvas.getBoundingClientRect();
@@ -120,6 +122,7 @@ function DrawCrosshair(e) {
 			ctx.lineTo(x, y);
 			ctx.stroke();
 			console.log('einde functie')
+			setTimeout(ShowLabels() , 5000);
     	}
     };
     
