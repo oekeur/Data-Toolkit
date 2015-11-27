@@ -40,7 +40,7 @@ function Data () {
 	data.sort(function(a, b){return a-b});
 
 
-	for (var i = 0; i < json.country.length; i++) {
+	for (var i = 0; i < json2.length; i++) {
 		if (json2[i].value <= 50) {
 			changeColor(json.country[i].countryCode.toLowerCase(), "#f7f7f7")};
 		if (json2[i].value > 50 && json2[i].value <= 100) {
