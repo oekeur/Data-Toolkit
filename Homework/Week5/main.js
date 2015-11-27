@@ -1,7 +1,10 @@
 /* use this to test out your function */
 window.onload = function() {
  	Continents();
- 	// changeColor();
+	changeColor("id" , "#33cc33")
+	changeColor("aq" , "#33cc33")
+	changeColor("sd" , "#33cc33")
+	changeColor("gb" , "#33cc33")
 }
 
 continents = {
@@ -32,6 +35,6 @@ function Continents () {
 
 /* changeColor takes a path ID and a color (hex value)
    and changes that path's fill color */
-// function changeColor(id, color) {
-        
-// }
+function changeColor(id, color) {
+         document.getElementById(id).style.fill=color
+}
