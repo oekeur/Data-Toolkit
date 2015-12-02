@@ -1,58 +1,38 @@
 /* use this to test out your function */
 window.onload = function() {
- 	Continents();
+ 	// Continents();
  	Data();
- 	// changeColor("us", "#000099")
-}
-
-continents = {
-	AS : [],
-	EU : [],
-	NA : [],
-	SA : [],
-	OC : []
+ 	// changeColor("US", "#000099")
 }
 
 data = []
+countries = ["AE","AF","AL","AM","AO","AR","AT","AU","AZ","BA","BD","BE","BF","BG","BI","BJ","BN","BO","BR","BS","BT","BW","BY","BZ","CA","CD","CF","CG","CH","CI","CL","CM","CN","CO","CR","CU","CY","CZ","DE","DJ","DK","DO","DZ","EC","EE","EG","EH","ER","ES","ET","FK","FI","FJ","FR","GA","GB","GE","GF","GH","GL","GM","GN","GQ","GR","GT","GW","GY","HN","HR","HT","HU","ID","IE","IL","IN","IQ","IR","IS","IT","JM","JO","JP","KE","KG","KH","KP","KR","XK","KW","KZ","LA","LB","LK","LR","LS","LT","LU","LV","LY","MA","MD","ME","MG","MK","ML","MM","MN","MR","MW","MX","MY","MZ","NA","NC","NE","NG","NI","NL","NO","NP","NZ","OM","PA","PE","PG","PH","PL","PK","PR","PS","PT","PY","QA","RO","RS","RU","RW","SA","SB","SD","SE","SI","SJ","SK","SL","SN","SO","SR","SS","SV","SY","SZ","TD","TF","TG","TH","TJ","TL","TM","TN","TR","TT","TW","TZ","UA","UG","US","UY","UZ","VE","VN","VU","YE","ZA","ZM","ZW"]
 
-function Continents () {
-	json = JSON.parse(document.getElementById('countries').innerHTML);
-	for (var i = 0; i < json.country.length; i++) {
-		if (json.country[i].continent == "EU") {
-			continents.EU.push(json.country[i].countryCode.toLowerCase())};
-		if (json.country[i].continent == "AS") {
-			continents.AS.push(json.country[i].countryCode.toLowerCase())};
-		if (json.country[i].continent == "NA") {
-			continents.NA.push(json.country[i].countryCode.toLowerCase())};
-		if (json.country[i].continent == "SA") {
-			continents.SA.push(json.country[i].countryCode.toLowerCase())};
-		if (json.country[i].continent == "OC") {
-			continents.OC.push(json.country[i].countryCode.toLowerCase())};
-	}
-	
-}
 
 function Data () {
-	json2 = JSON.parse(document.getElementById('data').innerHTML);
-	for (var i = 0; i < json2.length; i++) {
-		data.push(Number(json2[i].value))
+	json = JSON.parse(document.getElementById('data').innerHTML);
+	for (var i = 0; i < json.length; i++) {
+		for (var j = countries.length - 1; j >= 0; j--) {
+			if (json[i].code == countries[j]) {
+				data.push([json[i].code, json[i].value])
+			};
+		};
 	}
-	data.sort(function(a, b){return a-b});
 
 
-	for (var i = 0; i < json2.length; i++) {
-		if (json2[i].value <= 50) {
-			changeColor(json.country[i].countryCode.toLowerCase(), "#f7f7f7")};
-		if (json2[i].value > 50 && json2[i].value <= 100) {
-			changeColor(json.country[i].countryCode.toLowerCase(), "#d9d9d9")};
-		if (json2[i].value > 100 && json2[i].value <= 200) {
-			changeColor(json.country[i].countryCode.toLowerCase(), "#bdbdbd")};
-		if (json2[i].value > 200 && json2[i].value <= 400) {
-			changeColor(json.country[i].countryCode.toLowerCase(), "#969696")};
-		if (json2[i].value > 400 && json2[i].value <= 1000) {
-			changeColor(json.country[i].countryCode.toLowerCase(), "#636363")};
-		if (json2[i].value > 1000) {
-			changeColor(json.country[i].countryCode.toLowerCase(), "#252525")};
+	for (var i = 0; i < data.length; i++) {
+		if (data[i][1] <= 10) {
+			changeColor(data[i][0], "#f7f7f7")};
+		if (data[i][1] > 10 && data[i][1] <= 75) {
+			changeColor(data[i][0], "#d9d9d9")};
+		if (data[i][1] > 75 && data[i][1] <= 175) {
+			changeColor(data[i][0], "#bdbdbd")};
+		if (data[i][1] > 175 && data[i][1] <= 350) {
+			changeColor(data[i][0], "#969696")};
+		if (data[i][1] > 350 && data[i][1] <= 1000) {
+			changeColor(data[i][0], "#636363")};
+		if (data[i][1] > 1000) {
+			changeColor(data[i][0], "#252525")};
 	}
 	
 }
