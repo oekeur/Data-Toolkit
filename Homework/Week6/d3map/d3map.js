@@ -1,25 +1,55 @@
 /* use this to test out your function */
 window.onload = function() {
- 	// Getting the container's dimensions
+  D3Map()
+}
+
+function D3Map () {
+    // Getting the container's dimensions
   var width = document.getElementById('container').offsetWidth;
   var height = document.getElementById('container').offsetHeight;
+  var data = {}
   // Datamap constructor, fill in the options from the docs
+   dataset =                      //Place data here
+    [["AND","ca"],["ARE","ar-AE,fa,en,hi,ur"],["AFG","fa-AF,ps,uz-AF,tk"],["ATG","en-AG"],["AIA","en-AI"],["ALB","sq,el"],["ARM","hy"],["AGO","pt-AO"],["ATA",""],["ARG","es-AR,en,it,de,fr,gn"],["ASM","en-AS,sm,to"],["AUT","de-AT,hr,hu,sl"],["AUS","en-AU"],["ABW","nl-AW,es,en"],["ALA","sv-AX"],["AZE","az,ru,hy"],["BIH","bs,hr-BA,sr-BA"],["BRB","en-BB"],["BGD","bn-BD,en"],["BEL","nl-BE,fr-BE,de-BE"],["BFA","fr-BF"],["BGR","bg,tr-BG,rom"],["BHR","ar-BH,en,fa,ur"],["BDI","fr-BI,rn"],["BEN","fr-BJ"],["BLM","fr"],["BMU","en-BM,pt"],["BRN","ms-BN,en-BN"],["BOL","es-BO,qu,ay"],["BES","nl,pap,en"],["BRA","pt-BR,es,en,fr"],["BHS","en-BS"],["BTN","dz"],["BVT",""],["BWA","en-BW,tn-BW"],["BLR","be,ru"],["BLZ","en-BZ,es"],["CAN","en-CA,fr-CA,iu"],["CCK","ms-CC,en"],["COD","fr-CD,ln,kg"],["CAF","fr-CF,sg,ln,kg"],["COG","fr-CG,kg,ln-CG"],["CHE","de-CH,fr-CH,it-CH,rm"],["CIV","fr-CI"],["COK","en-CK,mi"],["CHL","es-CL"],["CMR","en-CM,fr-CM"],["CHN","zh-CN,yue,wuu,dta,ug,za"],["COL","es-CO"],["CRI","es-CR,en"],["CUB","es-CU"],["CPV","pt-CV"],["CUW","nl,pap"],["CXR","en,zh,ms-CC"],["CYP","el-CY,tr-CY,en"],["CZE","cs,sk"],["DEU","de"],["DJI","fr-DJ,ar,so-DJ,aa"],["DNK","da-DK,en,fo,de-DK"],["DMA","en-DM"],["DOM","es-DO"],["DZA","ar-DZ"],["ECU","es-EC"],["EST","et,ru"],["EGY","ar-EG,en,fr"],["ESH","ar,mey"],["ERI","aa-ER,ar,tig,kun,ti-ER"],["ESP","es-ES,ca,gl,eu,oc"],["ETH","am,en-ET,om-ET,ti-ET,so-ET,sid"],["FIN","fi-FI,sv-FI,smn"],["FJI","en-FJ,fj"],["FLK","en-FK"],["FSM","en-FM,chk,pon,yap,kos,uli,woe,nkr,kpg"],["FRO","fo,da-FO"],["FRA","fr-FR,frp,br,co,ca,eu,oc"],["GAB","fr-GA"],["GBR","en-GB,cy-GB,gd"],["GRD","en-GD"],["GEO","ka,ru,hy,az"],["GUF","fr-GF"],["GGY","en,fr"],["GHA","en-GH,ak,ee,tw"],["GIB","en-GI,es,it,pt"],["GRL","kl,da-GL,en"],["GMB","en-GM,mnk,wof,wo,ff"],["GIN","fr-GN"],["GLP","fr-GP"],["GNQ","es-GQ,fr"],["GRC","el-GR,en,fr"],["SGS","en"],["GTM","es-GT"],["GUM","en-GU,ch-GU"],["GNB","pt-GW,pov"],["GUY","en-GY"],["HKG","zh-HK,yue,zh,en"],["HMD",""],["HND","es-HN"],["HRV","hr-HR,sr"],["HTI","ht,fr-HT"],["HUN","hu-HU"],["IDN","id,en,nl,jv"],["IRL","en-IE,ga-IE"],["ISR","he,ar-IL,en-IL,"],["IMN","en,gv"],["IND","en-IN,hi,bn,te,mr,ta,ur,gu,kn,ml,or,pa,as,bh,sat,ks,ne,sd,kok,doi,mni,sit,sa,fr,lus,inc"],["IOT","en-IO"],["IRQ","ar-IQ,ku,hy"],["IRN","fa-IR,ku"],["ISL","is,en,de,da,sv,no"],["ITA","it-IT,de-IT,fr-IT,sc,ca,co,sl"],["JEY","en,pt"],["JAM","en-JM"],["JOR","ar-JO,en"],["JPN","ja"],["KEN","en-KE,sw-KE"],["KGZ","ky,uz,ru"],["KHM","km,fr,en"],["KIR","en-KI,gil"],["COM","ar,fr-KM"],["KNA","en-KN"],["PRK","ko-KP"],["KOR","ko-KR,en"],["KWT","ar-KW,en"],["CYM","en-KY"],["KAZ","kk,ru"],["LAO","lo,fr,en"],["LBN","ar-LB,fr-LB,en,hy"],["LCA","en-LC"],["LIE","de-LI"],["LKA","si,ta,en"],["LBR","en-LR"],["LSO","en-LS,st,zu,xh"],["LTU","lt,ru,pl"],["LUX","lb,de-LU,fr-LU"],["LVA","lv,ru,lt"],["LBY","ar-LY,it,en"],["MAR","ar-MA,fr"],["MCO","fr-MC,en,it"],["MDA","ro,ru,gag,tr"],["MNE","sr,hu,bs,sq,hr,rom"],["MAF","fr"],["MDG","fr-MG,mg"],["MHL","mh,en-MH"],["MKD","mk,sq,tr,rmm,sr"],["MLI","fr-ML,bm"],["MMR","my"],["MNG","mn,ru"],["MAC","zh,zh-MO,pt"],["MNP","fil,tl,zh,ch-MP,en-MP"],["MTQ","fr-MQ"],["MRT","ar-MR,fuc,snk,fr,mey,wo"],["MSR","en-MS"],["MLT","mt,en-MT"],["MUS","en-MU,bho,fr"],["MDV","dv,en"],["MWI","ny,yao,tum,swk"],["MEX","es-MX"],["MYS","ms-MY,en,zh,ta,te,ml,pa,th"],["MOZ","pt-MZ,vmw"],["NAM","en-NA,af,de,hz,naq"],["NCL","fr-NC"],["NER","fr-NE,ha,kr,dje"],["NFK","en-NF"],["NGA","en-NG,ha,yo,ig,ff"],["NIC","es-NI,en"],["NLD","nl-NL,fy-NL"],["NOR","no,nb,nn,se,fi"],["NPL","ne,en"],["NRU","na,en-NR"],["NIU","niu,en-NU"],["NZL","en-NZ,mi"],["OMN","ar-OM,en,bal,ur"],["PAN","es-PA,en"],["PER","es-PE,qu,ay"],["PYF","fr-PF,ty"],["PNG","en-PG,ho,meu,tpi"],["PHL","tl,en-PH,fil"],["PAK","ur-PK,en-PK,pa,sd,ps,brh"],["POL","pl"],["SPM","fr-PM"],["PCN","en-PN"],["PRI","en-PR,es-PR"],["PSE","ar-PS"],["PRT","pt-PT,mwl"],["PLW","pau,sov,en-PW,tox,ja,fil,zh"],["PRY","es-PY,gn"],["QAT","ar-QA,es"],["REU","fr-RE"],["ROU","ro,hu,rom"],["SRB","sr,hu,bs,rom"],["RUS","ru,tt,xal,cau,ady,kv,ce,tyv,cv,udm,tut,mns,bua,myv,mdf,chm,ba,inh,tut,kbd,krc,ava,sah,nog"],["RWA","rw,en-RW,fr-RW,sw"],["SAU","ar-SA"],["SLB","en-SB,tpi"],["SYC","en-SC,fr-SC"],["SDN","ar-SD,en,fia"],["SWE","sv-SE,se,sma,fi-SE"],["SGP","cmn,en-SG,ms-SG,ta-SG,zh-SG"],["SHN","en-SH"],["SVN","sl,sh"],["SJM","no,ru"],["SVK","sk,hu"],["SLE","en-SL,men,tem"],["SMR","it-SM"],["SEN","fr-SN,wo,fuc,mnk"],["SOM","so-SO,ar-SO,it,en-SO"],["SUR","nl-SR,en,srn,hns,jv"],["SSD","en"],["STP","pt-ST"],["SLV","es-SV"],["SXM","nl,en"],["SYR","ar-SY,ku,hy,arc,fr,en"],["SWZ","en-SZ,ss-SZ"],["TCA","en-TC"],["TCD","fr-TD,ar-TD,sre"],["ATF","fr"],["TGO","fr-TG,ee,hna,kbp,dag,ha"],["THA","th,en"],["TJK","tg,ru"],["TKL","tkl,en-TK"],["TLS","tet,pt-TL,id,en"],["TKM","tk,ru,uz"],["TUN","ar-TN,fr"],["TON","to,en-TO"],["TUR","tr-TR,ku,diq,az,av"],["TTO","en-TT,hns,fr,es,zh"],["TUV","tvl,en,sm,gil"],["TWN","zh-TW,zh,nan,hak"],["TZA","sw-TZ,en,ar"],["UKR","uk,ru-UA,rom,pl,hu"],["UGA","en-UG,lg,sw,ar"],["UMI","en-UM"],["USA","en-US,es-US,haw,fr"],["URY","es-UY"],["UZB","uz,ru,tg"],["VAT","la,it,fr"],["VCT","en-VC,fr"],["VEN","es-VE"],["VGB","en-VG"],["VIR","en-VI"],["VNM","vi,en,fr,zh,km"],["VUT","bi,en-VU,fr-VU"],["WLF","wls,fud,fr-WF"],["WSM","sm,en-WS"],["XKX","sq,sr"],["YEM","ar-YE"],["MYT","fr-YT"],["ZAF","zu,xh,af,nso,en-ZA,tn,st,ts,ss,ve,nr"],["ZMB","en-ZM,bem,loz,lun,lue,ny,toi"],["ZWE","en-ZW,sn,nr,nd"]]
+  
+  var onlyValues = dataset.map(function(obj){ return obj[1].split(",").length; });
+    var minValue = Math.min.apply(null, onlyValues),
+            maxValue = 12;
+
+  var paletteScale = d3.scale.linear()
+            .domain([minValue,maxValue])
+            .range(["#FFFFFF","#000000"]);
+
+  // fill dataset in appropriate format
+    dataset.forEach(function(item){ //
+        // item example value ["USA", 70]
+        var iso = item[0],
+            lang = item[1],
+            value = item[1].split(",").length; 
+        // console.log(dataset) 
+        data[iso] = { languages: lang, fillColor: paletteScale(value) };
+        // console.log(data)
+    });
+
   var map = new Datamap({
     element: document.getElementById('container'),
-           data:                      //Place data here
-          {AND:{languages:"ca"},ARE:{languages:"ar-AE,fa,en,hi,ur"},AFG:{languages:"fa-AF,ps,uz-AF,tk"},ATG:{languages:"en-AG"},AIA:{languages:"en-AI"},ALB:{languages:"sq,el"},ARM:{languages:"hy"},AGO:{languages:"pt-AO"},ATA:{languages:""},ARG:{languages:"es-AR,en,it,de,fr,gn"},ASM:{languages:"en-AS,sm,to"},AUT:{languages:"de-AT,hr,hu,sl"},AUS:{languages:"en-AU"},ABW:{languages:"nl-AW,es,en"},ALA:{languages:"sv-AX"},AZE:{languages:"az,ru,hy"},BIH:{languages:"bs,hr-BA,sr-BA"},BRB:{languages:"en-BB"},BGD:{languages:"bn-BD,en"},BEL:{languages:"nl-BE,fr-BE,de-BE"},BFA:{languages:"fr-BF"},BGR:{languages:"bg,tr-BG,rom"},BHR:{languages:"ar-BH,en,fa,ur"},BDI:{languages:"fr-BI,rn"},BEN:{languages:"fr-BJ"},BLM:{languages:"fr"},BMU:{languages:"en-BM,pt"},BRN:{languages:"ms-BN,en-BN"},BOL:{languages:"es-BO,qu,ay"},BES:{languages:"nl,pap,en"},BRA:{languages:"pt-BR,es,en,fr"},BHS:{languages:"en-BS"},BTN:{languages:"dz"},BVT:{languages:""},BWA:{languages:"en-BW,tn-BW"},BLR:{languages:"be,ru"},BLZ:{languages:"en-BZ,es"},CAN:{languages:"en-CA,fr-CA,iu"},CCK:{languages:"ms-CC,en"},COD:{languages:"fr-CD,ln,kg"},CAF:{languages:"fr-CF,sg,ln,kg"},COG:{languages:"fr-CG,kg,ln-CG"},CHE:{languages:"de-CH,fr-CH,it-CH,rm"},CIV:{languages:"fr-CI"},COK:{languages:"en-CK,mi"},CHL:{languages:"es-CL"},CMR:{languages:"en-CM,fr-CM"},CHN:{languages:"zh-CN,yue,wuu,dta,ug,za"},COL:{languages:"es-CO"},CRI:{languages:"es-CR,en"},CUB:{languages:"es-CU"},CPV:{languages:"pt-CV"},CUW:{languages:"nl,pap"},CXR:{languages:"en,zh,ms-CC"},CYP:{languages:"el-CY,tr-CY,en"},CZE:{languages:"cs,sk"},DEU:{languages:"de"},DJI:{languages:"fr-DJ,ar,so-DJ,aa"},DNK:{languages:"da-DK,en,fo,de-DK"},DMA:{languages:"en-DM"},DOM:{languages:"es-DO"},DZA:{languages:"ar-DZ"},ECU:{languages:"es-EC"},EST:{languages:"et,ru"},EGY:{languages:"ar-EG,en,fr"},ESH:{languages:"ar,mey"},ERI:{languages:"aa-ER,ar,tig,kun,ti-ER"},ESP:{languages:"es-ES,ca,gl,eu,oc"},ETH:{languages:"am,en-ET,om-ET,ti-ET,so-ET,sid"},FIN:{languages:"fi-FI,sv-FI,smn"},FJI:{languages:"en-FJ,fj"},FLK:{languages:"en-FK"},FSM:{languages:"en-FM,chk,pon,yap,kos,uli,woe,nkr,kpg"},FRO:{languages:"fo,da-FO"},FRA:{languages:"fr-FR,frp,br,co,ca,eu,oc"},GAB:{languages:"fr-GA"},GBR:{languages:"en-GB,cy-GB,gd"},GRD:{languages:"en-GD"},GEO:{languages:"ka,ru,hy,az"},GUF:{languages:"fr-GF"},GGY:{languages:"en,fr"},GHA:{languages:"en-GH,ak,ee,tw"},GIB:{languages:"en-GI,es,it,pt"},GRL:{languages:"kl,da-GL,en"},GMB:{languages:"en-GM,mnk,wof,wo,ff"},GIN:{languages:"fr-GN"},GLP:{languages:"fr-GP"},GNQ:{languages:"es-GQ,fr"},GRC:{languages:"el-GR,en,fr"},SGS:{languages:"en"},GTM:{languages:"es-GT"},GUM:{languages:"en-GU,ch-GU"},GNB:{languages:"pt-GW,pov"},GUY:{languages:"en-GY"},HKG:{languages:"zh-HK,yue,zh,en"},HMD:{languages:""},HND:{languages:"es-HN"},HRV:{languages:"hr-HR,sr"},HTI:{languages:"ht,fr-HT"},HUN:{languages:"hu-HU"},IDN:{languages:"id,en,nl,jv"},IRL:{languages:"en-IE,ga-IE"},ISR:{languages:"he,ar-IL,en-IL,"},IMN:{languages:"en,gv"},IND:{languages:"en-IN,hi,bn,te,mr,ta,ur,gu,kn,ml,or,pa,as,bh,sat,ks,ne,sd,kok,doi,mni,sit,sa,fr,lus,inc"},IOT:{languages:"en-IO"},IRQ:{languages:"ar-IQ,ku,hy"},IRN:{languages:"fa-IR,ku"},ISL:{languages:"is,en,de,da,sv,no"},ITA:{languages:"it-IT,de-IT,fr-IT,sc,ca,co,sl"},JEY:{languages:"en,pt"},JAM:{languages:"en-JM"},JOR:{languages:"ar-JO,en"},JPN:{languages:"ja"},KEN:{languages:"en-KE,sw-KE"},KGZ:{languages:"ky,uz,ru"},KHM:{languages:"km,fr,en"},KIR:{languages:"en-KI,gil"},COM:{languages:"ar,fr-KM"},KNA:{languages:"en-KN"},PRK:{languages:"ko-KP"},KOR:{languages:"ko-KR,en"},KWT:{languages:"ar-KW,en"},CYM:{languages:"en-KY"},KAZ:{languages:"kk,ru"},LAO:{languages:"lo,fr,en"},LBN:{languages:"ar-LB,fr-LB,en,hy"},LCA:{languages:"en-LC"},LIE:{languages:"de-LI"},LKA:{languages:"si,ta,en"},LBR:{languages:"en-LR"},LSO:{languages:"en-LS,st,zu,xh"},LTU:{languages:"lt,ru,pl"},LUX:{languages:"lb,de-LU,fr-LU"},LVA:{languages:"lv,ru,lt"},LBY:{languages:"ar-LY,it,en"},MAR:{languages:"ar-MA,fr"},MCO:{languages:"fr-MC,en,it"},MDA:{languages:"ro,ru,gag,tr"},MNE:{languages:"sr,hu,bs,sq,hr,rom"},MAF:{languages:"fr"},MDG:{languages:"fr-MG,mg"},MHL:{languages:"mh,en-MH"},MKD:{languages:"mk,sq,tr,rmm,sr"},MLI:{languages:"fr-ML,bm"},MMR:{languages:"my"},MNG:{languages:"mn,ru"},MAC:{languages:"zh,zh-MO,pt"},MNP:{languages:"fil,tl,zh,ch-MP,en-MP"},MTQ:{languages:"fr-MQ"},MRT:{languages:"ar-MR,fuc,snk,fr,mey,wo"},MSR:{languages:"en-MS"},MLT:{languages:"mt,en-MT"},MUS:{languages:"en-MU,bho,fr"},MDV:{languages:"dv,en"},MWI:{languages:"ny,yao,tum,swk"},MEX:{languages:"es-MX"},MYS:{languages:"ms-MY,en,zh,ta,te,ml,pa,th"},MOZ:{languages:"pt-MZ,vmw"},NAM:{languages:"en-NA,af,de,hz,naq"},NCL:{languages:"fr-NC"},NER:{languages:"fr-NE,ha,kr,dje"},NFK:{languages:"en-NF"},NGA:{languages:"en-NG,ha,yo,ig,ff"},NIC:{languages:"es-NI,en"},NLD:{languages:"nl-NL,fy-NL"},NOR:{languages:"no,nb,nn,se,fi"},NPL:{languages:"ne,en"},NRU:{languages:"na,en-NR"},NIU:{languages:"niu,en-NU"},NZL:{languages:"en-NZ,mi"},OMN:{languages:"ar-OM,en,bal,ur"},PAN:{languages:"es-PA,en"},PER:{languages:"es-PE,qu,ay"},PYF:{languages:"fr-PF,ty"},PNG:{languages:"en-PG,ho,meu,tpi"},PHL:{languages:"tl,en-PH,fil"},PAK:{languages:"ur-PK,en-PK,pa,sd,ps,brh"},POL:{languages:"pl"},SPM:{languages:"fr-PM"},PCN:{languages:"en-PN"},PRI:{languages:"en-PR,es-PR"},PSE:{languages:"ar-PS"},PRT:{languages:"pt-PT,mwl"},PLW:{languages:"pau,sov,en-PW,tox,ja,fil,zh"},PRY:{languages:"es-PY,gn"},QAT:{languages:"ar-QA,es"},REU:{languages:"fr-RE"},ROU:{languages:"ro,hu,rom"},SRB:{languages:"sr,hu,bs,rom"},RUS:{languages:"ru,tt,xal,cau,ady,kv,ce,tyv,cv,udm,tut,mns,bua,myv,mdf,chm,ba,inh,tut,kbd,krc,ava,sah,nog"},RWA:{languages:"rw,en-RW,fr-RW,sw"},SAU:{languages:"ar-SA"},SLB:{languages:"en-SB,tpi"},SYC:{languages:"en-SC,fr-SC"},SDN:{languages:"ar-SD,en,fia"},SWE:{languages:"sv-SE,se,sma,fi-SE"},SGP:{languages:"cmn,en-SG,ms-SG,ta-SG,zh-SG"},SHN:{languages:"en-SH"},SVN:{languages:"sl,sh"},SJM:{languages:"no,ru"},SVK:{languages:"sk,hu"},SLE:{languages:"en-SL,men,tem"},SMR:{languages:"it-SM"},SEN:{languages:"fr-SN,wo,fuc,mnk"},SOM:{languages:"so-SO,ar-SO,it,en-SO"},SUR:{languages:"nl-SR,en,srn,hns,jv"},SSD:{languages:"en"},STP:{languages:"pt-ST"},SLV:{languages:"es-SV"},SXM:{languages:"nl,en"},SYR:{languages:"ar-SY,ku,hy,arc,fr,en"},SWZ:{languages:"en-SZ,ss-SZ"},TCA:{languages:"en-TC"},TCD:{languages:"fr-TD,ar-TD,sre"},ATF:{languages:"fr"},TGO:{languages:"fr-TG,ee,hna,kbp,dag,ha"},THA:{languages:"th,en"},TJK:{languages:"tg,ru"},TKL:{languages:"tkl,en-TK"},TLS:{languages:"tet,pt-TL,id,en"},TKM:{languages:"tk,ru,uz"},TUN:{languages:"ar-TN,fr"},TON:{languages:"to,en-TO"},TUR:{languages:"tr-TR,ku,diq,az,av"},TTO:{languages:"en-TT,hns,fr,es,zh"},TUV:{languages:"tvl,en,sm,gil"},TWN:{languages:"zh-TW,zh,nan,hak"},TZA:{languages:"sw-TZ,en,ar"},UKR:{languages:"uk,ru-UA,rom,pl,hu"},UGA:{languages:"en-UG,lg,sw,ar"},UMI:{languages:"en-UM"},USA:{languages:"en-US,es-US,haw,fr"},URY:{languages:"es-UY"},UZB:{languages:"uz,ru,tg"},VAT:{languages:"la,it,fr"},VCT:{languages:"en-VC,fr"},VEN:{languages:"es-VE"},VGB:{languages:"en-VG"},VIR:{languages:"en-VI"},VNM:{languages:"vi,en,fr,zh,km"},VUT:{languages:"bi,en-VU,fr-VU"},WLF:{languages:"wls,fud,fr-WF"},WSM:{languages:"sm,en-WS"},XKX:{languages:"sq,sr"},YEM:{languages:"ar-YE"},MYT:{languages:"fr-YT"},ZAF:{languages:"zu,xh,af,nso,en-ZA,tn,st,ts,ss,ve,nr"},ZMB:{languages:"en-ZM,bem,loz,lun,lue,ny,toi"},ZWE:{languages:"en-ZW,sn,nr,nd"}},
-      
-      geographyConfig: {
-            popupTemplate: function(geo, data) {
-            	// Don't show if no data present
-            	if (!data) { return ; }
-            	// else return the data
-                return ['<div class="hoverinfo"><strong>',
-                        'Languages in ' + geo.properties.name,
-                        ': ' + data.languages.split(",").length, '<br>', data.languages.split(","),
-                        '</strong></div>'].join('');
-            }},
-            done: function(datamap) {
+    data : data,
+  geographyConfig: {
+      borderColor: "#000000",
+    popupTemplate: function(geo, data) {
+      // Don't show if no data present
+      if (!data) { return ; }
+      // else return the data
+        return ['<div class="hoverinfo"><strong>',
+                'Languages in ' + geo.properties.name,
+                ': ' + data.languages.split(",").length, '<br>', data.languages.split(","),
+                '</strong></div>'].join('');
+        }
+        // highlightFillColor: 'data.fillColor';
+        // highlightBorderColor: 'rgba(250, 15, 160, 0.2)';
+        // highlightBorderWidth: 5;
+      },
+  done: function(datamap) {
      datamap.svg.call(d3.behavior.zoom().on("zoom", redraw));
 
      function redraw() {
@@ -28,19 +58,3 @@ window.onload = function() {
   }
   });
 }
-
-countries = ["AE","AF","AL","AM","AO","AR","AT","AU","AZ","BA","BD","BE","BF","BG","BI","BJ","BN","BO","BR","BS","BT","BW","BY","BZ","CA","CD","CF","CG","CH","CI","CL","CM","CN","CO","CR","CU","CY","CZ","DE","DJ","DK","DO","DZ","EC","EE","EG","EH","ER","ES","ET","FK","FI","FJ","FR","GA","GB","GE","GF","GH","GL","GM","GN","GQ","GR","GT","GW","GY","HN","HR","HT","HU","ID","IE","IL","IN","IQ","IR","IS","IT","JM","JO","JP","KE","KG","KH","KP","KR","XK","KW","KZ","LA","LB","LK","LR","LS","LT","LU","LV","LY","MA","MD","ME","MG","MK","ML","MM","MN","MR","MW","MX","MY","MZ","NA","NC","NE","NG","NI","NL","NO","NP","NZ","OM","PA","PE","PG","PH","PL","PK","PR","PS","PT","PY","QA","RO","RS","RU","RW","SA","SB","SD","SE","SI","SJ","SK","SL","SN","SO","SR","SS","SV","SY","SZ","TD","TF","TG","TH","TJ","TL","TM","TN","TR","TT","TW","TZ","UA","UG","US","UY","UZ","VE","VN","VU","YE","ZA","ZM","ZW"]
-
-
-// function Data () {
-// 	json = JSON.parse(document.getElementById('data').innerHTML);
-// 	for (var i = 0; i < json.length; i++) {
-// 		for (var j = countries.length - 1; j >= 0; j--) {
-// 			if (json[i].countryCode == countries[j]) {
-// 				data.push([json[i]., json[i].languages.split(",").length])
-// 			};
-// 		};
-// 	}
-// 	console.log(data)
-// }
-

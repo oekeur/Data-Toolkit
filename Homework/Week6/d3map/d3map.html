@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta charset="UTF-8">
     <title>SVG Map</title>
     <link rel="stylesheet" type="text/css" href="d3map.css">
 
@@ -16,10 +17,13 @@
     <header>Spoken languages</header>
     
     <div id="wrapper">
-      <p>A visualization about the number of languages per country. A grayscale colorscheme has been chosen because this is the easiest to perceive. Data is missing for 5 countries on the map</p>
+      <p>A visualization about the number of languages per country. A grayscale colorscheme has been chosen because this is the easiest to perceive. Data is missing for 1 country (Somaliland).</p>
 
       <div id="container" style="position: relative;"></div>
-
+      <p>This map enables for two tasks. <br>
+      One: the comparison of the number of official languages per country. This is done by using a grayscale colorscale. More appropriate would be a discrete scale to get a more even distribution of the color, but did not get that working (yet). Furthermore it would be more appropriate to only highlight the borders of a acountry, instead of also changing the fillcolor, but also did not get that working too.<br>
+      Two: Inquiry about the number of languages per specific country. This is done by a mousehover with a popup that shows both the number of languages and which languages are spoken.<br>
+      Extra: it is possible to zoom in, enabling the inspection of areas with small countries.</p>
     </div>
 
 
